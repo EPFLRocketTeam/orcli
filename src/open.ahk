@@ -1,3 +1,5 @@
+; open a .ork file in OR
+
 ; SunAwtFrame is the ahk window class of OR
 ; SunAwtDialog is the ahk window class of OR's "open file" dialog
 

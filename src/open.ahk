@@ -33,6 +33,6 @@ if WinExist("ahk_class SunAwtFrame") { ; if OR is open
     WinWait("ahk_class SunAwtFrame") ; wait until OR is open
 }
 
-Esc::ExitApp ; emergency program exit bound to [esc]; to force exit this script, press [esc]
+Esc::ExitApp ; emergency script exit bound to [esc]; to force exit this script, press [esc]
 
 ExitApp ; exits the script when everything is done

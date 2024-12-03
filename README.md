@@ -3,11 +3,11 @@ For a documentation on how to setup/use/troubleshoot or how this works from a ge
 
 The goal of this was to facilitate using OpenRocket (OR) through a command line interface.
 As of now, this is what ORCLI does:
-- Take 5 arguments from user: <component>, <property>, <start>, <end>, <iterations>.
+- Take 5 arguments from user: `<component>`, `<property>`, `<start>`, `<end>`, `<iterations>`.
 An example would be: ./orcli nosecone length 1 2 6
-- Uniformly divide the interval [<start>;<end>] into <iterations> values.
+- Uniformly divide the interval [`<start>`;`<end>`] into `<iterations>` values.
 With the same example: [1;2] would be divided into the 6 values: 1, 1.2, 1.4, 1.6, 1.8, 2.
-- For a given rocket, run <iterations> simulations, each with <component>'s <property> set to a different value obtained from the previous division.
+- For a given rocket, run `<iterations>` simulations, each with `<component>`'s `<property>` set to a different value obtained from the previous division.
 With the same example: 6 simulations would be run, with nosecone's length set to respectively: 1, 1.2, 1.4, 1.6, 1.8, 2.
 - Data from each simulation is saved to a separate Excel sheet of an Excel workbook.
 

@@ -1,3 +1,5 @@
+; run the top simulation in OR
+
 ; IMPORTANT: position (client) of "Flight simulations" button on the OR GUI; must adjust manually
 runButton := "600 70"
 

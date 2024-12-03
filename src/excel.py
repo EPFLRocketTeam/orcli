@@ -1,3 +1,5 @@
+#format simulation data to Excel
+
 #used for writing results to Excel
 import openpyxl
 #used for taking arguments during program call

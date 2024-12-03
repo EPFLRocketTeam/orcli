@@ -1,3 +1,5 @@
+//main program; compile this one
+
 #include <iostream>
 #include <string>
 #include <fstream>

@@ -15,12 +15,13 @@ Here, detailed documentation on what the `.ahk` scripts do will be given.
 For documentation on AHK itself, see https://www.autohotkey.com/docs/v2/.
 
 # open.ahk
+This script opens a `.ork`, whose path is passed to it as an argument, in OR.
 This script takes 1 argument: the (absolute) path to the `.ork` file to be opened. When `open.ahk` is called in `orcli.cpp`, it is called with the argument `FILEPATH`, which must be modified directly in the code before compilation.
 In AHK, the first argument can be accessed via `A_Args[1]`, the second by `A_Args[2]`, etc.
 In addition, a variable `ORPATH` is initialized with a string containing the path to `OpenRocket.exe`. This will be used later to run OR, in case it is not already open. This path must be modified manually.
 
 First, the script checks whether OR is open. This is because opening OR takes more time to just activating it (switching to an OR window). It then splits into 2 cases.
-## OR is open
+### OR is open
 ![or-open.png](./images/or-open.png)
 *OR is open*
 If OR is open, it will:
@@ -28,7 +29,7 @@ If OR is open, it will:
 ![or-active.png](./images/or-active.png)
 *OR is active*
 - initialize a variable `winid` with the window ID of the active OR window (each window has an unique ID, which AHK uses to manipulate them; for more information, see https://www.autohotkey.com/docs/v2/howto/ManageWindows.htm)
-- send `[ctrl]` + `o` to OR, opening the "open file" dialog
+- send `[ctrl]` + `o` to OR, the OR shortcut for "open file"
 - wait until the "open file" dialog is open
 ![or-openfile.png](./images/or-openfile.png)
 *"open file" dialog*
@@ -54,17 +55,45 @@ Hence, to prevent windows piling up, we have kill that window manually - if it e
 - check if the old window still exists (if it has not been automatically killed)
   - if yes, kill it
 
-## OR is not open
-
+### OR is not open
+![or-notopen.png](./images/or-notopen.png)
+*OR is not open*
 If OR is not open, it will:
 - run `OpenRocket.exe` through the path stored in `ORPATH`, passing 1 argument to it: `A_Args[1]`, the first argument passed to the script, which stores the path of the `.ork` file to be opened
 
-This opens the file automatically when OR is open.
+This opens the file automatically as soo as OR is open.
 
-- wait until OR is open, i.e., until this screen shows up:
+- wait until OR is open, i.e., until this window shows up:
+![or-gui.png](./images/or-gui.png)
+*OR window with opened file*
 
-
-## End
+### End
 Exit the script when everything is done.
+
+**Note**: each `.ahk` script has been coded with an exit button bound to `[esc]`. Pressing `[esc]` will force exit the script at any time.
+
+# run.ahk
+This script saves the open file in OR.
+This script takes no argument.
+
+Firstly, the script will check if OR is the active window. If not, which should not happen, it will directly exit.
+If yes, it will:
+- send `[ctrl]` + `s` to OR, the OR shortcut for "save file"
+
+Next, a dialog **may or may not** appear. If it does, it will ask if all simulation data should be saved, or only summary data should be saved. The default is all data, which is what we want, so if it appears, we directly press `[enter]` to close it.
+
+- wait for 200ms, which is the time it takes on my device for that dialog to appear. This time should be adjusted to suit your device.
+- check if the dialog appeared
+  - if yes, send `[enter]` to the dialog
+ 
+If the file takes too long to save, a loading dialog will appear.
+
+- wait for 1s, which is the time it takes on my device for the file to finish saving / for the loading dialog to appear. This time should be adjusted to suit your device.
+- check if the loading dialog exists
+  - if yes, wait until it becomes inactive (until it finishes)
+- exit the script
+
+**Note**: each `.ahk` script has been coded with an exit button bound to `[esc]`. Pressing `[esc]` will force exit the script at any time.
+
 
 (in progress)

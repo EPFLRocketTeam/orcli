@@ -24,7 +24,8 @@ In addition, a variable `ORPATH` is initialized with a string containing the pat
 First, the script checks whether OR is open. This is because opening OR takes more time to just activating it (switching to an OR window). It then splits into 2 cases.
 ### OR is open  
 <img src="./images/or-open.png" alt="or-open.png" width="400"/>  
-*OR is open*  
+*OR is open*
+
 If OR is open, it will:
 - render OR the active window  
 <img src="./images/or-active.png" alt="or-active.png" width="400"/>  

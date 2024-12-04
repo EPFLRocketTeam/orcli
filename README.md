@@ -103,7 +103,9 @@ Instead of the different simulations:
 ![or-sims.png](./images/or-sims.png)  
 *simulations*
 
-- enter a loop which sends `[tab]` 3 times to OR, with a 20ms wait between each send. 20ms is the wait time makes this sequence the most consistent on my device. This time should be adjusted to suit your device. This step should move the selection to the `Run simulations` button.
+- enter a loop which sends `[tab]` 3 times to OR, with a 20ms wait between each send. 20ms is the wait time makes this sequence the most consistent on my device. This time should be adjusted to suit your device. This step should move the selection to the `Run simulations` button.  
+![or-runselect.png](./images/or-runselect.png)
+*`Run simulations` button selected*
 - send `[enter]` to OR, running the selected simulation (by default, the topmost one)
 - wait until the "running simulations" dialog exists  
 ![or-rundialog.png](./images/or-rundialog.png)  

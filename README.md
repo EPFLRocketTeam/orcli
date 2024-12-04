@@ -87,16 +87,25 @@ If yes, it will:
 ![or-active.png](./images/or-active.png)
 *OR is active*
 - set the mouse position to runButton and press left click once (select the `Flight simulations` tab)
+![or-fs.png](./images/or-fs.png)
+*OR's `Flight simulations` tab*
 - wait for 100ms, which is the wait time which makes this script run most consistently on my device. This time should be adjusted to suit your device.
 - set the mouse position to runButton and press left click once (select the `Flight simulations` tab again, highlighting it)
+![or-fs-highlight.png](./images/or-fs-highlight.png)
+*`Flight simulations` button highlighted*
 
 The previous step makes it so that the selected element is the `Flight simulations` button, and not the topmost simulation, which is the default. Hence, when you press `[tab]`, the selection will move between the different buttons:
+![or-buttons.png](./images/or-buttons.png)
+*buttons*
 
 Instead of the different simulations:
+![or-sims.png](./images/or-sims.png)
+*simulations*
 
 - enter a loop which sends `[tab]` 3 times to OR, with a 20ms wait between each send. 20ms is the wait time makes this sequence the most consistent on my device. This time should be adjusted to suit your device. This step should move the selection to the `Run simulations` button.
 - send `[enter]` to OR, running the selected simulation (by default, the topmost one)
 - wait until the "running simulations" dialog exists
+![or-rundialog.png](./images/or-rundialog.png)
 - wait until the "running simulations" dialog is no longer active (until it finishes)
 - exit the script
 

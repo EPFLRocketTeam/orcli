@@ -60,7 +60,8 @@ Hence, to prevent windows piling up, we have kill that window manually - if it e
 
 ### OR is not open
 ![or-notopen.png](./images/or-notopen.png)  
-*OR is not open*  
+*OR is not open*
+
 If OR is not open, it will:
 - run `OpenRocket.exe` through the path stored in `ORPATH`, passing 1 argument to it: `A_Args[1]`, the first argument passed to the script, which stores the path of the `.ork` file to be opened
 

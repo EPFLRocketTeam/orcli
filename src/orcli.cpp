@@ -26,12 +26,13 @@ int main(int argc, char* argv[]) {
     double inc = (end-start)/(n-1);  //increment between each simulation
     //variable to store the current value of <property> during each simulation
     double val = start;
+    std::string t;  //temporary string variable
     
     //main loop; each iteration is one simulation run
     for(int k = 0 ; k < n ; k++) {
         //call "unzip.py" to unzip the .ork file
         //it extracts "rocket.ork", a .xml file we can modify
-        std::string t = "python unzip.py " + FILEPATH;
+        t = "python unzip.py " + FILEPATH;
         system(t.c_str());
 
         //modify <property>'s value to "val"
@@ -154,6 +155,9 @@ int main(int argc, char* argv[]) {
     }
 
     remove("rocket.ork");  //delete "rocket.ork" to clean up
-
+    //create a message box "done" when the program is done
+    t = AHKPATH + " end.ahk";
+    system(t.c_str());
+    
     return 0;
 }

@@ -27,8 +27,9 @@ if WinExist("ahk_class SunAwtFrame") { ; if OR is open
         WinWaitNotActive ; wait until it ends
     }
     WinWaitNotActive(winid) ; wait until the new window is active (until the old window is no longer active)
-
-    WinClose(winid) ; close the old window
+    if(WinExist(winid) { ; if the old window still exists
+        WinClose(winid) ; close the old window
+    }
 
 } else  { ; if OR is not open
     Run(ORPATH . A_Args[1]) ; run OR with the path to "file.ork" as an argument; this opens that file

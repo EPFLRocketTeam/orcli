@@ -23,31 +23,30 @@ In addition, a variable `ORPATH` is initialized with a string containing the pat
 
 First, the script checks whether OR is open. This is because opening OR takes more time to just activating it (switching to an OR window). It then splits into 2 cases.
 ### OR is open  
-<img src="./images/or-open.png" alt="or-open.png" width="200"/>
-![or-open.png](./images/or-open.png)  
+<img src="./images/or-open.png" alt="or-open.png" width="400"/>  
 *OR is open*  
 If OR is open, it will:
 - render OR the active window  
-![or-active.png](./images/or-active.png)  
+<img src="./images/or-active.png" alt="or-active.png" width="400"/>  
 *OR is active*
 - initialize a variable `winid` with the window ID of the active OR window (each window has an unique ID, which AHK uses to manipulate them; for more information, see https://www.autohotkey.com/docs/v2/howto/ManageWindows.htm)
 - send `[ctrl]` + `o` to OR, the OR shortcut for "open file"  
-![or-file.png](./images/or-file.png)  
+<img src="./images/or-file.png" alt="or-file.png" width="200"/>  
 *some OR file-related shortcuts*
 - wait until the "open file" dialog is open  
-![or-openfile.png](./images/or-openfile.png)  
+<img src="./images/or-openfile.png" alt="or-openfile.png" width="400"/>  
 *"open file" dialog*
-- in the `file name` box, enter `A_Arg[1]`, which is the first argument passed to this program, and which should contain the path to the `.ork` file to be opened  
-![or-openfile-path.png](./images/or-openfile-path.png)  
+- in the `file name` box, enter `A_Arg[1]`, which is the first argument passed to this program, and which should contain the path to the `.ork` file to be opened
+<img src="./images/or-openfile-path.png" alt="or-openfile-path.png" width="400"/>  
 *"open file" dialog with file path entered in `file name` box*
 - send `[enter]` to the dialog, confirming the file opening
 
 OR, upon opening a file, creates a new window. The particularity is that, if initially no file was open, it kills the old window after opening the new window automatically.  
-![or-unloaded.png](./images/or-unloaded.png)  
+<img src="./images/or-unloaded.png" alt="or-unloaded.png" width="600"/>  
 *no file is open*
 
 However, if a file was already open, it leaves that window open, and creates a new window on top of that one.  
-![or-loaded.png](./images/or-loaded.png)  
+<img src="./images/or-loaded.png" alt="or-loaded.png" width="600"/>  
 *new window on top of old window*
 
 Hence, to prevent windows piling up, we have kill that window manually - if it exists. The next part of the script does that.
@@ -60,7 +59,7 @@ Hence, to prevent windows piling up, we have kill that window manually - if it e
   - if yes, kill it
 
 ### OR is not open
-![or-notopen.png](./images/or-notopen.png)  
+<img src="./images/or-notopen.png" alt="or-notopen.png" width="400"/>  
 *OR is not open*
 
 If OR is not open, it will:
@@ -69,7 +68,7 @@ If OR is not open, it will:
 This opens the file automatically as soo as OR is open.
 
 - wait until OR is open, i.e., until this window shows up:  
-![or-gui.png](./images/or-gui.png)  
+<img src="./images/or-gui.png" alt="or-gui.png" width="600"/>  
 *OR window with opened file*
 
 ### End
@@ -86,30 +85,30 @@ A variable `runButton` is initialized to the position (client) of the button `Fl
 First, the script checks whether OR is open. If not, which should not happen, it creates an error message box, then exits.  
 If yes, it will:
 - render OR the active window  
-![or-active.png](./images/or-active.png)  
+<img src="./images/or-active.png" alt="or-active.png" width="400"/>  
 *OR is active*
 - set the mouse position to runButton and press left click once (select the `Flight simulations` tab)  
-![or-fs.png](./images/or-fs.png)  
+<img src="./images/or-fs.png" alt="or-fs.png" width="600"/>  
 *OR's `Flight simulations` tab*
 - wait for 100ms, which is the wait time which makes this script run most consistently on my device. This time should be adjusted to suit your device.
 - set the mouse position to runButton and press left click once (select the `Flight simulations` tab again, highlighting it)  
-![or-fs-highlight.png](./images/or-fs-highlight.png)  
+<img src="./images/or-fs-highlight.png" alt="or-fs-highlight.png" width="600"/>  
 *`Flight simulations` button highlighted*
 
 The previous step makes it so that the selected element is the `Flight simulations` button, and not the topmost simulation, which is the default. Hence, when you press `[tab]`, the selection will move between the different buttons:  
-![or-buttons.png](./images/or-buttons.png)  
+<img src="./images/or-buttons.png" alt="or-buttons.png" width="400"/>  
 *buttons*
 
 Instead of the different simulations:  
-![or-sims.png](./images/or-sims.png)  
+<img src="./images/or-sims.png" alt="or-sims.png" width="400"/>  
 *simulations*
 
 - enter a loop which sends `[tab]` 3 times to OR, with a 20ms wait between each send. 20ms is the wait time makes this sequence the most consistent on my device. This time should be adjusted to suit your device. This step should move the selection to the `Run simulations` button.  
-![or-runselect.png](./images/or-runselect.png)
+<img src="./images/or-runselect.png" alt="or-runselect.png" width="400"/>  
 *`Run simulations` button selected*
 - send `[enter]` to OR, running the selected simulation (by default, the topmost one)
 - wait until the "running simulations" dialog exists  
-![or-rundialog.jpg](./images/or-rundialog.jpg)  
+<img src="./images/or-rundialog.jpg" alt="or-rundialog.jpg" width="200"/>  
 *"running simulations" dialog*
 - wait until the "running simulations" dialog is no longer active (until it finishes)
 - exit the script
@@ -123,11 +122,11 @@ This script takes no argument.
 First, the script checks whether OR is the active window. If not, which should not happen, it will directly exit.  
 If yes, it will:
 - send `[ctrl]` + `s` to OR, the OR shortcut for "save file"  
-![or-file.png](./images/or-file.png)  
+<img src="./images/or-file.png" alt="or-file.png" width="200"/>  
 *some OR file-related shortcuts*
 
 Next, a "save options" dialog **may or may not** appear. If it does, it will ask if all simulation data should be saved, or only summary data should be saved. The default is all data, which is what we want, so if it appears, we directly press `[enter]` to close it.  
-![or-saveoptions.png](./images/or-saveoptions.png)  
+<img src="./images/or-saveoptions.png" alt="or-saveoptions.png" width="200"/>  
 *"save options" dialog*
 
 - wait for 200ms, which is the time it takes on my device for the "save options" dialog to appear. This time should be adjusted to suit your device.

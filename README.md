@@ -41,7 +41,7 @@ If OR is open, it will:
 *"open file" dialog with file path entered in `file name` box*
 - send `[enter]` to the dialog, confirming the file opening
 
-OR, upon opening a file, creates a new window. The particularity is that if initially, no file was open, it kills the old window after opening the new window automatically.
+OR, upon opening a file, creates a new window. The particularity is that, if initially no file was open, it kills the old window after opening the new window automatically.
 ![or-unloaded.png](./images/or-unloaded.png)
 *no file is opened*
 

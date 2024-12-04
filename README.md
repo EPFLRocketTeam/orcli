@@ -168,6 +168,3 @@ If the file takes too long to save, a loading dialog will appear.
 - exit the script
 
 **Note**: each `.ahk` script has been coded with an exit button bound to `[esc]`. Pressing `[esc]` will force exit the script at any time.
-
-
-(in progress)

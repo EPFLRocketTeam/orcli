@@ -28,26 +28,26 @@ First, the script checks whether OR is open. This is because opening OR takes mo
 If OR is open, it will:
 - render OR the active window  
 <img src="./images/or-active.png" alt="or-active.png" width="400"/>  
-*OR is active*
+*OR is active*  
 - initialize a variable `winid` with the window ID of the active OR window (each window has an unique ID, which AHK uses to manipulate them; for more information, see https://www.autohotkey.com/docs/v2/howto/ManageWindows.htm)
 - send `[ctrl]` + `o` to OR, the OR shortcut for "open file"  
 <img src="./images/or-file.png" alt="or-file.png" width="200"/>  
-*some OR file-related shortcuts*
+*some OR file-related shortcuts*  
 - wait until the "open file" dialog is open  
 <img src="./images/or-openfile.png" alt="or-openfile.png" width="400"/>  
-*"open file" dialog*
+*"open file" dialog*  
 - in the `file name` box, enter `A_Arg[1]`, which is the first argument passed to this program, and which should contain the path to the `.ork` file to be opened
 <img src="./images/or-openfile-path.png" alt="or-openfile-path.png" width="400"/>  
-*"open file" dialog with file path entered in `file name` box*
+*"open file" dialog with file path entered in `file name` box*  
 - send `[enter]` to the dialog, confirming the file opening
 
 OR, upon opening a file, creates a new window. The particularity is that, if initially no file was open, it kills the old window after opening the new window automatically.  
 <img src="./images/or-unloaded.png" alt="or-unloaded.png" width="600"/>  
-*no file is open*
+*no file is open*  
 
 However, if a file was already open, it leaves that window open, and creates a new window on top of that one.  
 <img src="./images/or-loaded.png" alt="or-loaded.png" width="600"/>  
-*new window on top of old window*
+*new window on top of old window*  
 
 Hence, to prevent windows piling up, we have kill that window manually - if it exists. The next part of the script does that.
 
@@ -60,7 +60,7 @@ Hence, to prevent windows piling up, we have kill that window manually - if it e
 
 ### OR is not open
 <img src="./images/or-notopen.png" alt="or-notopen.png" width="400"/>  
-*OR is not open*
+*OR is not open*  
 
 If OR is not open, it will:
 - run `OpenRocket.exe` through the path stored in `ORPATH`, passing 1 argument to it: `A_Args[1]`, the first argument passed to the script, which stores the path of the `.ork` file to be opened
@@ -69,7 +69,7 @@ This opens the file automatically as soo as OR is open.
 
 - wait until OR is open, i.e., until this window shows up:  
 <img src="./images/or-gui.png" alt="or-gui.png" width="600"/>  
-*OR window with opened file*
+*OR window with opened file*  
 
 ### End
 Exit the script when everything is done.
@@ -86,26 +86,26 @@ First, the script checks whether OR is open. If not, which should not happen, it
 If yes, it will:
 - render OR the active window  
 <img src="./images/or-active.png" alt="or-active.png" width="400"/>  
-*OR is active*
+*OR is active*  
 - set the mouse position to runButton and press left click once (select the `Flight simulations` tab)  
 <img src="./images/or-fs.png" alt="or-fs.png" width="600"/>  
-*OR's `Flight simulations` tab*
+*OR's `Flight simulations` tab*  
 - wait for 100ms, which is the wait time which makes this script run most consistently on my device. This time should be adjusted to suit your device.
 - set the mouse position to runButton and press left click once (select the `Flight simulations` tab again, highlighting it)  
 <img src="./images/or-fs-highlight.png" alt="or-fs-highlight.png" width="600"/>  
-*`Flight simulations` button highlighted*
+*`Flight simulations` button highlighted*  
 
 The previous step makes it so that the selected element is the `Flight simulations` button, and not the topmost simulation, which is the default. Hence, when you press `[tab]`, the selection will move between the different buttons:  
 <img src="./images/or-buttons.png" alt="or-buttons.png" width="400"/>  
-*buttons*
+*buttons*  
 
 Instead of the different simulations:  
 <img src="./images/or-sims.png" alt="or-sims.png" width="400"/>  
-*simulations*
+*simulations*  
 
 - enter a loop which sends `[tab]` 3 times to OR, with a 20ms wait between each send. 20ms is the wait time makes this sequence the most consistent on my device. This time should be adjusted to suit your device. This step should move the selection to the `Run simulations` button.  
 <img src="./images/or-runselect.png" alt="or-runselect.png" width="400"/>  
-*`Run simulations` button selected*
+*`Run simulations` button selected*  
 - send `[enter]` to OR, running the selected simulation (by default, the topmost one)
 - wait until the "running simulations" dialog exists  
 <img src="./images/or-rundialog.jpg" alt="or-rundialog.jpg" width="200"/>  
@@ -123,11 +123,11 @@ First, the script checks whether OR is the active window. If not, which should n
 If yes, it will:
 - send `[ctrl]` + `s` to OR, the OR shortcut for "save file"  
 <img src="./images/or-file.png" alt="or-file.png" width="200"/>  
-*some OR file-related shortcuts*
+*some OR file-related shortcuts*  
 
 Next, a "save options" dialog **may or may not** appear. If it does, it will ask if all simulation data should be saved, or only summary data should be saved. The default is all data, which is what we want, so if it appears, we directly press `[enter]` to close it.  
 <img src="./images/or-saveoptions.png" alt="or-saveoptions.png" width="200"/>  
-*"save options" dialog*
+*"save options" dialog*  
 
 - wait for 200ms, which is the time it takes on my device for the "save options" dialog to appear. This time should be adjusted to suit your device.
 - check if the dialog appeared

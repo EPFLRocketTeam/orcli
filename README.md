@@ -108,7 +108,7 @@ Instead of the different simulations:
 *`Run simulations` button selected*
 - send `[enter]` to OR, running the selected simulation (by default, the topmost one)
 - wait until the "running simulations" dialog exists  
-![or-rundialog.png](./images/or-rundialog.png)  
+![or-rundialog.jpg](./images/or-rundialog.jpg)  
 *"running simulations" dialog*
 - wait until the "running simulations" dialog is no longer active (until it finishes)
 - exit the script
